@@ -13,3 +13,33 @@ select,
 input {
   height: auto !important;
 }
+
+#logo {
+  font-size: 50px;
+  font-style: italic;
+  color: chartreuse;
+}
+#login-h1,
+#signup-h1 {
+  margin-left: 20px;
+  font-size: 40px;
+}
+
+.set-color {
+  color: chartreuse;
+}
+
+// Error Messages CSS
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}

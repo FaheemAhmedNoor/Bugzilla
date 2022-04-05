@@ -9,7 +9,20 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  
   <body>
+    <%= render 'layouts/header' %>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+        <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%=message %></div>
+    <% end %>
     <%= yield %>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
