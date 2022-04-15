@@ -10,6 +10,7 @@ gem 'sqlite3', '~> 1.4'
 #Use bootstrap
 gem 'bootstrap-sass', '3.4.1'
 
+gem "letter_opener", group: :development
 #Use for secure password
 gem 'bcrypt', '3.1.13'
 # Use Puma as the app server

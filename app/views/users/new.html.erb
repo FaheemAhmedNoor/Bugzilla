@@ -11,6 +11,13 @@
             <%= f.label :email %>
             <%= f.email_field :email, class: 'form-control' %>
 
+            <%# <%= f.select :role, ['Manager', 'QA', 'Developer'], class: 'form-control'%> 
+
+            <%= f.label :role %>
+            <%# <%= f.number_field :role, class: 'form-control' %>  %>
+            <%= f.select :role, options_for_select({manager: 1, qa: 2, developer: 3}),class: 'form-control' %> ) 
+
+
             <%= f.label :password %>
             <%= f.password_field :password, class: 'form-control' %>
 

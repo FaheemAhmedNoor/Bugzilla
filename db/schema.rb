@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_31_144709) do
+ActiveRecord::Schema.define(version: 2022_04_13_210534) do
 
   create_table "bugs", force: :cascade do |t|
     t.string "title"
@@ -19,6 +19,20 @@ ActiveRecord::Schema.define(version: 2022_03_31_144709) do
     t.integer "estimated_days"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status"
+    t.integer "assigned_to"
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_bugs_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "description"
+    t.integer "user_id", null: false
+    t.integer "bug_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bug_id"], name: "index_comments_on_bug_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -27,6 +41,13 @@ ActiveRecord::Schema.define(version: 2022_03_31_144709) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
+    t.string "activation_digest"
+    t.boolean "activated", default: false
+    t.datetime "activated_at"
+    t.integer "role"
   end
 
+  add_foreign_key "bugs", "users"
+  add_foreign_key "comments", "bugs"
+  add_foreign_key "comments", "users"
 end

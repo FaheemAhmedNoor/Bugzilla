@@ -10,7 +10,7 @@
   </head>
 
   
-  <body>
+    <body>
     <%= render 'layouts/header' %>
 
     <br>
@@ -23,6 +23,5 @@
       <div class="alert alert-<%= message_type %>"><%=message %></div>
     <% end %>
     <%= yield %>
-    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>

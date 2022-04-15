@@ -17,9 +17,14 @@
         <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home", home_path %></li>
 
-            <%# <li><%= link_to "Help", help_path %></li> %>
+            <%# <li><%= link_to "Bugs", new_bug %></li> %>
             <% if logged_in? %>
-            <li><%= link_to "Users", "#" %></li>
+            <% if @current_user.role != 'developer' %>
+                <li><%= link_to "Create New Bug", new_bug_url %></li>
+            <%end%>
+            <li><%= link_to "Show Bugs", bugs_path %></li>
+
+            <li><%= link_to "Users", display_path %></li>
             <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b>
             </a>
